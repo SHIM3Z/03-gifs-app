@@ -7,6 +7,7 @@ import { GifsService } from '../../../gifs/services/gifs.service';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
+  public isSidebarOpen: boolean = false;
   constructor(private gifsService: GifsService) {}
 
   get tags(): string[] {
@@ -15,5 +16,9 @@ export class SidebarComponent {
 
   reSearch(tag: string) {
     this.gifsService.searchTag(tag);
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }
